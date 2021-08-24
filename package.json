@@ -1,8 +1,8 @@
 {
-  "name": "sanity-template-nextjs-ecommerce",
+  "name": "brandt-studios",
   "version": "1.0.0",
   "private": true,
-  "description": "Sanity.io and Next.js Ecommerce Starter template",
+  "description": "Brandt Studios website created with Next.js and Sanity.io",
   "scripts": {
     "dev": "concurrently \"next\" \"cd studio && sanity start\"",
     "build": "echo 'Building Sanity to public/studio…' && cd studio && sanity build ../public/studio -y && cd .. && next build",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sanity-io/sanity-template-nextjs-ecommerce.git"
+    "url": "git+https://github.com/jeremiahbrandt/brandt-studios.git"
   },
   "dependencies": {
     "@sanity/client": "^2.0.1",
@@ -33,10 +33,10 @@
     "tailwindcss": "^1.9.6"
   },
   "keywords": [],
-  "author": "Sanity.io <hello@sanity.io>",
+  "author": "Jeremiah Brandt <jeremiahjbrandt@outlook.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sanity-io/sanity-template-nextjs-ecommerce/issues"
+    "url": "https://github.com/jeremiahbrandt/brandt-studios/issues"
   },
-  "homepage": "https://github.com/sanity-io/sanity-template-nextjs-ecommerce#readme"
+  "homepage": "https://github.com/jeremiahbrandt/brandt-studios#readme"
 }

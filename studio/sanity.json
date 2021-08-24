@@ -1,11 +1,11 @@
 {
   "root": true,
   "api": {
-    "projectId": "placeholder",
-    "dataset": "placeholder"
+    "projectId": "xn2t3gzy",
+    "dataset": "development"
   },
   "project": {
-    "name": "Next.JS E-commerce example",
+    "name": "Brandt Studios",
     "basePath": "/studio"
   },
   "plugins": [

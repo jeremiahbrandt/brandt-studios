@@ -1,10 +1,10 @@
 {
-  "name": "sanity-nextjs-ecommerce-studio",
+  "name": "brandt-studios-studio",
   "private": true,
   "version": "0.0.0",
   "description": "",
   "main": "package.json",
-  "author": "Knut Melvær <knut@sanity.io>",
+  "author": "Jeremiah Brandt <jeremiahjbrandt@outlook.com",
   "license": "MIT",
   "scripts": {
     "start": "sanity start",
