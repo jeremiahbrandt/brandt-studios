@@ -13,6 +13,11 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    env: 
+      SANITY_STUDIO_API_PROJECT_ID: xn2t3gzy
+      SANITY_STUDIO_API_DATASET: development
+      NEXT_PUBLIC_SANITY_PROJECT_ID: xn2t3gzy
+      NEXT_PUBLIC_SANITY_DATASET: development
 
     strategy:
       matrix:
