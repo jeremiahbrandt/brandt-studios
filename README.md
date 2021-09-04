@@ -1,6 +1,7 @@
 # Brandt Studios
 
 ## Links
+- [GitHub](https://github.com/jeremiahbrandt/brandt-studios)
 - [Local Site](http://localhost:3000/)
 - [Local CMS](http://localhost:3000/studio)
 - [Deployed Site](https://brandt-studios.vercel.app/)
