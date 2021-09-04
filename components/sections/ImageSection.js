@@ -15,7 +15,7 @@ function ImageSection(props) {
         <div className="flex items-center">
           <div>
             <figure>
-              <img
+              <image
                 className="rounded-md object-cover mx-auto"
                 src={urlFor(image).auto("format").width(2000).url()}
                 alt={heading}

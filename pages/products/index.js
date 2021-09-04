@@ -9,13 +9,14 @@ const query = `//groq
 
 function ProductsPageContainer({ productsData, preview }) {
   const router = useRouter();
-  if (!router.isFallback && !productsData) {
-    return <Error statusCode={404} />;
-  }
   const { data: products } = usePreviewSubscription(query, {
     initialData: productsData,
     enabled: preview || router.query.preview !== null,
   });
+  
+  if (!router.isFallback && !productsData) {
+    return <Error statusCode={404} />;
+  }
 
   return <ProductsPage products={products} />;
 }

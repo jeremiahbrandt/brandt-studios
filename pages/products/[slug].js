@@ -8,9 +8,6 @@ const query = groq`*[_type == "product" && slug.current == $slug][0]`;
 
 function ProductPageContainer({ productData, preview }) {
   const router = useRouter();
-  if (!router.isFallback && !productData?.slug) {
-    return <Error statusCode={404} />;
-  }
 
   const { data: product = {} } = usePreviewSubscription(query, {
     params: { slug: productData?.slug?.current },
@@ -30,6 +27,11 @@ function ProductPageContainer({ productData, preview }) {
     categories,
     slug,
   } = product;
+
+  if (!router.isFallback && !productData?.slug) {
+    return <Error statusCode={404} />;
+  }
+
   return (
     <ProductPage
       id={_id}

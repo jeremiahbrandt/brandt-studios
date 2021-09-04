@@ -8,22 +8,23 @@ const query = groq`*[_type == "route" && slug.current == $slug][0]{
   page->
 }`
 
-function ProductPageContainer ({ pageData, preview, slug }) {
+function ProductPageContainer({ pageData, preview, slug }) {
   const router = useRouter()
-  if (!router.isFallback && !pageData) {
-    return <Error statusCode={404} />
-  }
 
-  const { data: { page = {} } = {} } =  usePreviewSubscription(query, {
+  const { data: { page = {} } = {} } = usePreviewSubscription(query, {
     params: { slug },
     initialData: pageData,
     enabled: preview || router.query.preview !== null
   })
 
+  if (!router.isFallback && !pageData) {
+    return <Error statusCode={404} />
+  }
+
   return <LandingPage page={page} />
 }
 
-export async function getStaticProps ({ params = {}, preview = false }) {
+export async function getStaticProps({ params = {}, preview = false }) {
   const { slug } = params
   const { page: pageData } = await getClient(preview).fetch(query, {
     slug
@@ -34,7 +35,7 @@ export async function getStaticProps ({ params = {}, preview = false }) {
   }
 }
 
-export async function getStaticPaths () {
+export async function getStaticPaths() {
   const routes = await getClient()
     .fetch(`*[_type == "route" && defined(slug.current)]{
     "params": {"slug": slug.current}
