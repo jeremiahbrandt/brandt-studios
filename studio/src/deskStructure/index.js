@@ -14,7 +14,6 @@ import ProductsOverviewPreview from "../components/previews/product/ProductsOver
 const hiddenDocTypes = (listItem) =>
   ![
     "category",
-    "person",
     "sampleProject",
     "vendor",
     "siteSettings",
@@ -27,9 +26,8 @@ const hiddenDocTypes = (listItem) =>
 
 export default () =>
   S.list()
-    .title("Pulp Inc.")
+    .title("Brandt Studios")
     .items([
-      S.documentTypeListItem("product").title("Products"),
       S.listItem()
         .title("Website")
         .icon(MdWeb)
@@ -50,7 +48,6 @@ export default () =>
               S.documentTypeListItem("page").title("Pages"),
             ])
         ),
-      ads,
       ...S.documentTypeListItems().filter(hiddenDocTypes),
     ]);
 
