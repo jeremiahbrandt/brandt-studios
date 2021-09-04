@@ -4,19 +4,11 @@ import createSchema from "part:@sanity/base/schema-creator";
 import schemaTypes from "all:part:@sanity/base/schema-type";
 
 // We import object and document schemas
-import category from "./documents/category";
-import product from "./documents/product";
-import vendor from "./documents/vendor";
-import productVariant from "./documents/productVariant";
-import brand from "./documents/brand";
 import social from "./documents/social";
-import ad from "./documents/ad";
-import swag from "./documents/swag";
 import page from "./documents/page";
 import route from "./documents/route";
 import siteConfig from "./documents/siteConfig";
 import person from "./documents/person";
-import popup from "./documents/popup";
 import painting from "./documents/painting";
 import pottery from "./documents/pottery";
 import photography from "./documents/photography";
@@ -49,14 +41,7 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
-    product,
-    popup,
-    vendor,
-    category,
-    brand,
     social,
-    ad,
-    swag,
     page,
     route,
     siteConfig,
@@ -79,6 +64,5 @@ export default createSchema({
     localeText,
     localeBlockContent,
     localeString,
-    productVariant,
   ]),
 });
