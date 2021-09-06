@@ -1,10 +1,5 @@
 import S from "@sanity/desk-tool/structure-builder";
-import { MdWeb, MdSettings, MdWhatshot, MdLooks } from "react-icons/md";
-import ads from "./ads";
-import categories from "./categories";
-import person from "./person";
-
-import siteSettings from "./siteSettings";
+import { MdWeb, MdSettings } from "react-icons/md";
 
 import TotebagPreview from "../components/previews/banners/swag/TotebagPreview";
 import ShirtPreview from "../components/previews/banners/swag/ShirtPreview";
@@ -13,23 +8,16 @@ import ProductsOverviewPreview from "../components/previews/product/ProductsOver
 // Hide document types that we already have a structure definition for
 const hiddenDocTypes = (listItem) =>
   ![
-    "category",
-    "person",
-    "sampleProject",
-    "vendor",
     "siteSettings",
-    "ad",
     "page",
-    "product",
     "route",
     "siteConfig",
   ].includes(listItem.getId());
 
 export default () =>
   S.list()
-    .title("Pulp Inc.")
+    .title("Brandt Studios")
     .items([
-      S.documentTypeListItem("product").title("Products"),
       S.listItem()
         .title("Website")
         .icon(MdWeb)
@@ -50,7 +38,6 @@ export default () =>
               S.documentTypeListItem("page").title("Pages"),
             ])
         ),
-      ads,
       ...S.documentTypeListItems().filter(hiddenDocTypes),
     ]);
 

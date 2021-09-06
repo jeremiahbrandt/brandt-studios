@@ -16,6 +16,7 @@ const config = {
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   useCdn: process.env.NODE_ENV === "production",
+  apiVersion: "2021-09-04"
   /**
    * Set useCdn to `false` if your application require the freshest possible
    * data always (potentially slightly slower and a bit more expensive).
@@ -48,7 +49,7 @@ export const PortableText = createPortableTextComponent({
 });
 
 // Set up the client for fetching data in the getProps page functions
-export const sanityClient = createClient(config);
+export const client = createClient(config);
 // Set up a preview client with serverless authentication for drafts
 
 export const previewClient = createClient({
@@ -58,4 +59,4 @@ export const previewClient = createClient({
 
 // Helper function for easily switching between normal client and preview client
 export const getClient = (usePreview) =>
-  usePreview ? previewClient : sanityClient;
+  usePreview ? previewClient : client;
