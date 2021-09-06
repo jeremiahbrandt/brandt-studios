@@ -5,25 +5,26 @@ import { useRouter } from 'next/router';
 export type ShopPageWrapperProps = {
     query: string,
     preview: boolean,
-    shopData: any
+    shopData: any,
+    params: any
 }
 
-export default function ShopPagePreviewWrapper({ shopData, preview, query } : ShopPageWrapperProps) {
+export default function ShopPagePreviewWrapper({ shopData, preview, query, params } : ShopPageWrapperProps) {
   const router = useRouter()
 
-  const { data: shop = {} } = usePreviewSubscription(query, {
-    params: { slug: shopData?.slug?.current },
+  const { data: shop } = usePreviewSubscription(query, {
+    params: { slug: params.slug },
     initialData: shopData,
-    enabled: preview || router.query.preview !== null
+    enabled: preview || router.query.preview !== null,
   })
 
+  if (!router.isFallback && !shopData.slug) {
+    return <Error statusCode={404} />
+  }
+  
   const {
     title
   } = shop
-
-  if (!router.isFallback && !shop.slug) {
-    return <Error statusCode={404} />
-  }
 
   return (
     <div>Shop page for {title}</div>

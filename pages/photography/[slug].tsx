@@ -2,14 +2,14 @@ import { getClient } from '../../utils/sanity'
 import ShopPagePreviewWrapper from '../../components/ShopPagePreviewWrapper';
 import { getPhotographyPathsQuery, getPhotographyPropsQuery } from '../../utils/queries';
 
-export default function PotteryPageContainer({ photographyData, preview }): JSX.Element {
-    return <ShopPagePreviewWrapper preview={preview} query={getPhotographyPropsQuery} shopData={photographyData} />
+export default function PotteryPageContainer({ photography, preview, params }): JSX.Element {
+    return <ShopPagePreviewWrapper preview={preview} query={getPhotographyPropsQuery} shopData={photography} params={params} />
 }
 
 export async function getStaticProps({ params, preview = false }) {
     const photography = await getClient(preview).fetch(getPhotographyPropsQuery, { slug: params.slug })
     return {
-        props: { preview, photography },
+        props: { preview, photography, params },
         revalidate: 1
     }
 }
