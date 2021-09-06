@@ -14,10 +14,10 @@ export default function PotteryPageContainer({ pottery }) {
     );
 }
 
-export async function getStaticProps({ params }) {
-    const pottery = await getClient().fetch(query, { slug: params.slug })
+export async function getStaticProps({ params, preview = false }) {
+    const pottery = await getClient(preview).fetch(query, { slug: params.slug })
     return {
-      props: { pottery },
+      props: { preview, pottery },
       revalidate: 1
     }
   

@@ -18,11 +18,10 @@ export default function PaintingPageContainer({ painting }): JSX.Element {
   )
 }
 
-export async function getStaticProps({ params }) {
-  const client = getClient()
-  const painting = await client.fetch(getSinglePaintingQuery, { slug: params.slug })
+export async function getStaticProps({ params, preview = false }) {
+  const painting = await getClient(preview).fetch(getSinglePaintingQuery, { slug: params.slug })
   return {
-    props: { painting },
+    props: { preview, painting },
     revalidate: 1
   }
 }

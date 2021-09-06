@@ -17,10 +17,10 @@ export default function PotteryPageContainer({ photography }): JSX.Element {
     </div>)
 }
 
-export async function getStaticProps({ params }) {
-    const photography = await getClient().fetch(query, { slug: params.slug })
+export async function getStaticProps({ params, preview = false }) {
+    const photography = await getClient(preview).fetch(query, { slug: params.slug })
     return {
-        props: { photography },
+        props: { preview, photography },
         revalidate: 1
     }
 
