@@ -1,10 +1,10 @@
 import Link from "next/link"
 import React from "react"
-import { List } from "../../components/List"
+import { List, ListItem } from "../../components/List"
 import { getAllPhotographyQuery } from "../../utils/queries"
 import { getClient } from "../../utils/sanity"
 
-export default function Photography({ photography }): JSX.Element {
+export default function Photography({ photography }: { photography: ListItem[] }): JSX.Element {
     return (
         <List title="Photography" slugPrefix="photography" items={photography} />
     )

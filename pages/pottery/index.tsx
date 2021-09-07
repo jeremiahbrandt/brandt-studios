@@ -1,10 +1,10 @@
 import Link from "next/link"
 import React from "react"
-import { List } from "../../components/List"
+import { List, ListItem } from "../../components/List"
 import { getAllPotteryQuery } from "../../utils/queries"
 import { getClient } from "../../utils/sanity"
 
-export default function Pottery({ pottery }) {
+export default function Pottery({ pottery }: { pottery: ListItem[] }) {
     return (
         <List title="Pottery" slugPrefix="pottery" items={pottery} />
     )

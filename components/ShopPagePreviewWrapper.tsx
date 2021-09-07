@@ -31,6 +31,8 @@ export default function ShopPagePreviewWrapper({ shopData, preview, query, slugP
     return <Error statusCode={404} />
   }
 
+  console.log(shop)
+
   const {
     title
   } = shop
@@ -48,7 +50,7 @@ export async function getStaticPropsHelper({ params, preview = false, query }: G
   }
 }
 
-export async function getStaticPathsHelper({query}: GetStaticPathsHelperContext): Promise<GetStaticPathsResult> {
+export async function getStaticPathsHelper({ query }: GetStaticPathsHelperContext): Promise<GetStaticPathsResult> {
   const slugs = await getClient().fetch(query) as string[]
   return {
     paths: slugs.map(slug => ({ params: { slug } })),

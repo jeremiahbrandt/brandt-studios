@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 
-function Layout({ children }) {
+function Layout({ children }: { children: JSX.Element }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const handleMenu = () => setMenuOpen(!menuOpen);

@@ -1,10 +1,10 @@
 import Link from "next/link"
 import React from "react"
-import { List } from "../../components/List"
+import { List, ListItem } from "../../components/List"
 import { getAllPaintingsQuery } from "../../utils/queries"
 import { getClient } from "../../utils/sanity"
 
-export default function Paintings({ paintings }): JSX.Element {
+export default function Paintings({ paintings }: { paintings: ListItem[] }): JSX.Element {
     return (
         <List title="Paintings" slugPrefix="paintings" items={paintings} />
     )
