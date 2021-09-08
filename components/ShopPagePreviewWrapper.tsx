@@ -1,7 +1,8 @@
 import Error from 'next/error'
+
 import { getClient, usePreviewSubscription } from '../utils/sanity'
-import { useRouter } from 'next/router'
 import { GetStaticPathsContext, GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult } from 'next'
+import { useRouter } from 'next/router'
 
 type GetStaticPropsHelperContext = GetStaticPropsContext & {
   query: string

@@ -1,4 +1,4 @@
-import ShopPagePreviewWrapper, { getStaticPathsHelper, getStaticPropsHelper, GetStaticPropsHelperResult } from '../../components/ShopPagePreviewWrapper'
+import ShopPagePreviewWrapper, { GetStaticPropsHelperResult, getStaticPathsHelper, getStaticPropsHelper } from '../../components/ShopPagePreviewWrapper'
 import { getPhotographyPathsQuery, getPhotographyPropsQuery } from '../../utils/queries'
 import { GetStaticPathsContext, GetStaticPropsContext } from 'next'
 
