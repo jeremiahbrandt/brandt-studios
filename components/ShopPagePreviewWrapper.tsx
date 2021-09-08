@@ -7,10 +7,17 @@ type GetStaticPropsHelperContext = GetStaticPropsContext & {
   query: string
 }
 
+type ShopData = {
+  title: string
+  slug: {
+    current: string
+  }
+}
+
 export type GetStaticPropsHelperResult = {
   preview: boolean
-  shopData: any
-  slugParams: string | string[] | undefined
+  shopData: ShopData
+  params: any
   query: string
 }
 
@@ -18,24 +25,22 @@ type GetStaticPathsHelperContext = GetStaticPathsContext & {
   query: string
 }
 
-export default function ShopPagePreviewWrapper({ shopData, preview, query, slugParams }: GetStaticPropsHelperContext & GetStaticPropsHelperResult) {
+export default function ShopPagePreviewWrapper({ shopData, preview, query, params }: GetStaticPropsHelperResult) {
   const router = useRouter()
 
-  const { data: shop } = usePreviewSubscription(query, {
-    params: { slug: slugParams },
+  const { data: shop = {} as ShopData } = usePreviewSubscription(query, {
+    params: { slug: shopData?.slug?.current },
     initialData: shopData,
-    enabled: preview || router.query.preview !== null,
+    enabled: preview || router.query.preview !== null
   })
-
-  if (!router.isFallback && !shopData.slug) {
-    return <Error statusCode={404} />
-  }
-
-  console.log(shop)
 
   const {
     title
   } = shop
+
+  if (!router.isFallback && !shop.slug) {
+    return <Error statusCode={404} />
+  }
 
   return (
     <div>Shop page for {title}</div>
@@ -45,7 +50,7 @@ export default function ShopPagePreviewWrapper({ shopData, preview, query, slugP
 export async function getStaticPropsHelper({ params, preview = false, query }: GetStaticPropsHelperContext): Promise<GetStaticPropsResult<GetStaticPropsHelperResult>> {
   const shopData = await getClient(preview).fetch(query, { slug: params?.slug })
   return {
-    props: { preview, shopData, slugParams: params?.slug, query },
+    props: { params, preview, query, shopData },
     revalidate: 1
   }
 }

@@ -7,9 +7,9 @@ export default function PaintingPageContainer(props: GetStaticPropsHelperResult)
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  return getStaticPropsHelper({...context, query: getPaintingPropsQuery})
+  return await getStaticPropsHelper({...context, query: getPaintingPropsQuery})
 }
 
 export async function getStaticPaths(context: GetStaticPathsContext) {
-  return getStaticPathsHelper({ ...context, query: getPaintingPathsQuery})
+  return await getStaticPathsHelper({...context, query: getPaintingPathsQuery})
 }
