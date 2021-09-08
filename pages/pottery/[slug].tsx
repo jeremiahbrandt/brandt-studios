@@ -1,6 +1,6 @@
-import { getPotteryPathsQuery, getPotteryPropsQuery } from '../../utils/queries';
-import ShopPagePreviewWrapper, { getStaticPathsHelper, getStaticPropsHelper, GetStaticPropsHelperResult } from '../../components/ShopPagePreviewWrapper';
-import { GetStaticPathsContext, GetStaticPropsContext } from 'next';
+import { getPotteryPathsQuery, getPotteryPropsQuery } from '../../utils/queries'
+import ShopPagePreviewWrapper, { getStaticPathsHelper, getStaticPropsHelper, GetStaticPropsHelperResult } from '../../components/ShopPagePreviewWrapper'
+import { GetStaticPathsContext, GetStaticPropsContext } from 'next'
 
 export default function PotteryPageContainer(props: GetStaticPropsHelperResult) {
   return <ShopPagePreviewWrapper {...props} />

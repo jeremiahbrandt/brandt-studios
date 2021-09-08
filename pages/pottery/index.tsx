@@ -1,8 +1,8 @@
-import Link from "next/link"
-import React from "react"
-import { List, ListItem } from "../../components/List"
-import { getAllPotteryQuery } from "../../utils/queries"
-import { getClient } from "../../utils/sanity"
+import Link from 'next/link'
+import React from 'react'
+import { List, ListItem } from '../../components/List'
+import { getAllPotteryQuery } from '../../utils/queries'
+import { getClient } from '../../utils/sanity'
 
 export default function Pottery({ pottery }: { pottery: ListItem[] }) {
     return (

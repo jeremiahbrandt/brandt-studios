@@ -1,8 +1,8 @@
-import RenderSections from "./RenderSections";
+import RenderSections from './RenderSections'
 
 function LandingPage({ page = {} }) {
-  const { content = [] } = page;
-  return <RenderSections sections={content} />;
+  const { content = [] } = page
+  return <RenderSections sections={content} />
 }
 
-export default LandingPage;
+export default LandingPage

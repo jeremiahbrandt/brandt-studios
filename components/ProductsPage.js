@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState } from 'react'
 
-import ProductCard from "./ProductCard";
+import ProductCard from './ProductCard'
 
 function ProductsPage({ products }) {
   return (
@@ -13,7 +13,7 @@ function ProductsPage({ products }) {
         ))}
       </div>
     </div>
-  );
+  )
 }
 
-export default ProductsPage;
+export default ProductsPage

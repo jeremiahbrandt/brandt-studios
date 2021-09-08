@@ -1,10 +1,10 @@
 import {useState} from 'react'
-import { urlFor, PortableText, getClient } from "../utils/sanity";
+import { urlFor, PortableText, getClient } from '../utils/sanity'
 
 function ProductPage(props) {
   const [count, setCount] = useState(1)
   const handleCount = (value) => !(count === 0 && value === -1) ? setCount(count + value) : count
-  const { title, defaultProductVariant, mainImage, body } = props;
+  const { title, defaultProductVariant, mainImage, body } = props
   return (
     <div className="container mx-auto px-6">
       <div className="md:flex md:items-center">
@@ -12,9 +12,9 @@ function ProductPage(props) {
           <image
             className="h-full w-full rounded-md object-cover max-w-lg mx-auto"
             src={urlFor(mainImage)
-              .auto("format")
+              .auto('format')
               .width(1051)
-              .fit("crop")
+              .fit('crop')
               .quality(80)}
             alt={mainImage?.alt || `Photo of ${title}`}
           />
@@ -84,7 +84,7 @@ function ProductPage(props) {
         {body && <PortableText blocks={body?.en} className="text-gray-600" />}
       </div>
     </div>
-  );
+  )
 }
 
-export default ProductPage;
+export default ProductPage

@@ -1,6 +1,6 @@
-import { getPaintingPathsQuery, getPaintingPropsQuery } from '../../utils/queries';
-import ShopPagePreviewWrapper, { getStaticPathsHelper, getStaticPropsHelper, GetStaticPropsHelperResult } from '../../components/ShopPagePreviewWrapper';
-import { GetStaticPathsContext, GetStaticPropsContext } from 'next';
+import { getPaintingPathsQuery, getPaintingPropsQuery } from '../../utils/queries'
+import ShopPagePreviewWrapper, { getStaticPathsHelper, getStaticPropsHelper, GetStaticPropsHelperResult } from '../../components/ShopPagePreviewWrapper'
+import { GetStaticPathsContext, GetStaticPropsContext } from 'next'
 
 export default function PaintingPageContainer(props: GetStaticPropsHelperResult): JSX.Element {
   return <ShopPagePreviewWrapper {...props} />

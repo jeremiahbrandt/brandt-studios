@@ -1,7 +1,7 @@
-import Error from 'next/error';
-import { getClient, usePreviewSubscription } from '../utils/sanity';
-import { useRouter } from 'next/router';
-import { GetStaticPathsContext, GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult } from 'next';
+import Error from 'next/error'
+import { getClient, usePreviewSubscription } from '../utils/sanity'
+import { useRouter } from 'next/router'
+import { GetStaticPathsContext, GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult } from 'next'
 
 type GetStaticPropsHelperContext = GetStaticPropsContext & {
   query: string
@@ -44,7 +44,7 @@ export default function ShopPagePreviewWrapper({ shopData, preview, query, param
 
   return (
     <div>Shop page for {title}</div>
-  );
+  )
 }
 
 export async function getStaticPropsHelper({ params, preview = false, query }: GetStaticPropsHelperContext): Promise<GetStaticPropsResult<GetStaticPropsHelperResult>> {

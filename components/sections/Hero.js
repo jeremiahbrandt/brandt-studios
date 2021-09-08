@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
-import Cta from "../Cta";
-import { PortableText, urlFor } from "../../utils/sanity";
+import PropTypes from 'prop-types'
+import Cta from '../Cta'
+import { PortableText, urlFor } from '../../utils/sanity'
 
 function Hero(props) {
-  const { heading, backgroundImage, tagline, ctas } = props;
+  const { heading, backgroundImage, tagline, ctas } = props
 
   return (
     <div>
@@ -24,9 +24,9 @@ function Hero(props) {
             <image
               className="h-full w-full rounded-md object-cover max-w-lg mx-auto"
               src={urlFor(backgroundImage)
-                .auto("format")
+                .auto('format')
                 .width(1051)
-                .fit("crop")
+                .fit('crop')
                 .quality(80)}
               alt={backgroundImage.alt}
             />
@@ -34,7 +34,7 @@ function Hero(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 Hero.propTypes = {
@@ -42,6 +42,6 @@ Hero.propTypes = {
   backgroundImage: PropTypes.object,
   tagline: PropTypes.array,
   ctas: PropTypes.arrayOf(PropTypes.object),
-};
+}
 
-export default Hero;
+export default Hero

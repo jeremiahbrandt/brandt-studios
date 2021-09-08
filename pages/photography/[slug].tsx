@@ -1,6 +1,6 @@
-import ShopPagePreviewWrapper, { getStaticPathsHelper, getStaticPropsHelper, GetStaticPropsHelperResult } from '../../components/ShopPagePreviewWrapper';
-import { getPhotographyPathsQuery, getPhotographyPropsQuery } from '../../utils/queries';
-import { GetStaticPathsContext, GetStaticPropsContext } from 'next';
+import ShopPagePreviewWrapper, { getStaticPathsHelper, getStaticPropsHelper, GetStaticPropsHelperResult } from '../../components/ShopPagePreviewWrapper'
+import { getPhotographyPathsQuery, getPhotographyPropsQuery } from '../../utils/queries'
+import { GetStaticPathsContext, GetStaticPropsContext } from 'next'
 
 export default function PotteryPageContainer(props: GetStaticPropsHelperResult): JSX.Element {
   return <ShopPagePreviewWrapper {...props} />
