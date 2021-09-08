@@ -1,5 +1,8 @@
 {
   "extends": "next/core-web-vitals",
+  "plugins": [
+    "unused-imports"
+  ],
   "rules": {
     "quotes": [
       "error",
@@ -8,6 +11,7 @@
     "semi": [
       "error",
       "never"
-    ]
+    ],
+    "unused-imports/no-unused-imports-ts": 2
   }
 }

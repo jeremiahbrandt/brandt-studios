@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import React from 'react'
 import { List, ListItem } from '../../components/List'
 import { getAllPhotographyQuery } from '../../utils/queries'
