@@ -12,21 +12,6 @@
       "error",
       "never"
     ],
-    "unused-imports/no-unused-imports-ts": "warn",
-    "sort-imports": [
-      "error",
-      {
-        "ignoreCase": false,
-        "ignoreDeclarationSort": false,
-        "ignoreMemberSort": true,
-        "memberSyntaxSortOrder": [
-          "none",
-          "all",
-          "multiple",
-          "single"
-        ],
-        "allowSeparatedGroups": true
-      }
-    ]
+    "unused-imports/no-unused-imports-ts": "warn"
   }
 }
