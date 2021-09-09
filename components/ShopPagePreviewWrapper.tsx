@@ -18,7 +18,6 @@ type ShopData = {
 export type GetStaticPropsHelperResult = {
   preview: boolean
   shopData: ShopData
-  params: any
   query: string
 }
 
@@ -26,17 +25,17 @@ type GetStaticPathsHelperContext = GetStaticPathsContext & {
   query: string
 }
 
-export default function ShopPagePreviewWrapper({ shopData, preview, query, params }: GetStaticPropsHelperResult) {
+export default function ShopPagePreviewWrapper({ shopData, preview, query }: GetStaticPropsHelperResult): JSX.Element {
   const router = useRouter()
 
   const { data: shop = {} as ShopData } = usePreviewSubscription(query, {
     params: { slug: shopData?.slug?.current },
     initialData: shopData,
-    enabled: preview || router.query.preview !== null
+    enabled: preview || router.query.preview !== null,
   })
 
   const {
-    title
+    title,
   } = shop
 
   if (!router.isFallback && !shop.slug) {
@@ -51,8 +50,8 @@ export default function ShopPagePreviewWrapper({ shopData, preview, query, param
 export async function getStaticPropsHelper({ params, preview = false, query }: GetStaticPropsHelperContext): Promise<GetStaticPropsResult<GetStaticPropsHelperResult>> {
   const shopData = await getClient(preview).fetch(query, { slug: params?.slug })
   return {
-    props: { params, preview, query, shopData },
-    revalidate: 1
+    props: { preview, query, shopData },
+    revalidate: 1,
   }
 }
 
@@ -60,6 +59,6 @@ export async function getStaticPathsHelper({ query }: GetStaticPathsHelperContex
   const slugs = await getClient().fetch(query) as string[]
   return {
     paths: slugs.map(slug => ({ params: { slug } })),
-    fallback: true
+    fallback: true,
   }
 }

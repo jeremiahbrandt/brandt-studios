@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
-function Layout({ children }: { children: JSX.Element }) {
+function Layout({ children }: { children: JSX.Element }): JSX.Element {
   const [menuOpen, setMenuOpen] = useState(false)
   const [cartOpen, setCartOpen] = useState(false)
   const handleMenu = () => setMenuOpen(!menuOpen)
@@ -51,7 +51,7 @@ function Layout({ children }: { children: JSX.Element }) {
           </div>
           <nav
             className={`${menuOpen ? '' : 'hidden'
-              } sm:flex sm:justify-center sm:items-center mt-4`}
+            } sm:flex sm:justify-center sm:items-center mt-4`}
           >
             <div className="flex flex-col sm:flex-row">
               <Link href="/">
