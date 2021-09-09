@@ -1,9 +1,11 @@
 {
   "extends": [
-    "next/core-web-vitals"
+    "next/core-web-vitals",
+    "plugin:jest/all"
   ],
   "plugins": [
-    "unused-imports"
+    "unused-imports",
+    "jest"
   ],
   "overrides": [
     {
