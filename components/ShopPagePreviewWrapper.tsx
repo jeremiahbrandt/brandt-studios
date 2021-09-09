@@ -1,24 +1,41 @@
-import Error from 'next/error';
-import { usePreviewSubscription } from '../utils/sanity';
-import { useRouter } from 'next/router';
+import Error from 'next/error'
 
-export type ShopPageWrapperProps = {
-    query: string,
-    preview: boolean,
-    shopData: any
+import { getClient, usePreviewSubscription } from '../utils/sanity'
+import { GetStaticPathsContext, GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult } from 'next'
+import { useRouter } from 'next/router'
+
+type GetStaticPropsHelperContext = GetStaticPropsContext & {
+  query: string
 }
 
-export default function ShopPagePreviewWrapper({ shopData, preview, query } : ShopPageWrapperProps) {
+type ShopData = {
+  title: string
+  slug: {
+    current: string
+  }
+}
+
+export type GetStaticPropsHelperResult = {
+  preview: boolean
+  shopData: ShopData
+  query: string
+}
+
+type GetStaticPathsHelperContext = GetStaticPathsContext & {
+  query: string
+}
+
+export default function ShopPagePreviewWrapper({ shopData, preview, query }: GetStaticPropsHelperResult): JSX.Element {
   const router = useRouter()
 
-  const { data: shop = {} } = usePreviewSubscription(query, {
+  const { data: shop = {} as ShopData } = usePreviewSubscription(query, {
     params: { slug: shopData?.slug?.current },
     initialData: shopData,
-    enabled: preview || router.query.preview !== null
+    enabled: preview || router.query.preview !== null,
   })
 
   const {
-    title
+    title,
   } = shop
 
   if (!router.isFallback && !shop.slug) {
@@ -27,5 +44,21 @@ export default function ShopPagePreviewWrapper({ shopData, preview, query } : Sh
 
   return (
     <div>Shop page for {title}</div>
-  );
+  )
+}
+
+export async function getStaticPropsHelper({ params, preview = false, query }: GetStaticPropsHelperContext): Promise<GetStaticPropsResult<GetStaticPropsHelperResult>> {
+  const shopData = await getClient(preview).fetch(query, { slug: params?.slug })
+  return {
+    props: { preview, query, shopData },
+    revalidate: 1,
+  }
+}
+
+export async function getStaticPathsHelper({ query }: GetStaticPathsHelperContext): Promise<GetStaticPathsResult> {
+  const slugs = await getClient().fetch(query) as string[]
+  return {
+    paths: slugs.map(slug => ({ params: { slug } })),
+    fallback: true,
+  }
 }

@@ -1,23 +1,15 @@
-import { getClient } from '../../utils/sanity'
-import ShopPagePreviewWrapper from '../../components/ShopPagePreviewWrapper';
-import { getPhotographyPathsQuery, getPhotographyPropsQuery } from '../../utils/queries';
+import ShopPagePreviewWrapper, { GetStaticPropsHelperResult, getStaticPathsHelper, getStaticPropsHelper } from '../../components/ShopPagePreviewWrapper'
+import { getPhotographyPathsQuery, getPhotographyPropsQuery } from '../../utils/queries'
+import { GetStaticPathsContext, GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult } from 'next'
 
-export default function PotteryPageContainer({ photographyData, preview }): JSX.Element {
-    return <ShopPagePreviewWrapper preview={preview} query={getPhotographyPropsQuery} shopData={photographyData} />
+export default function PotteryPageContainer(props: GetStaticPropsHelperResult): JSX.Element {
+  return <ShopPagePreviewWrapper {...props} />
 }
 
-export async function getStaticProps({ params, preview = false }) {
-    const photography = await getClient(preview).fetch(getPhotographyPropsQuery, { slug: params.slug })
-    return {
-        props: { preview, photography },
-        revalidate: 1
-    }
+export async function getStaticProps(context: GetStaticPropsContext): Promise<GetStaticPropsResult<GetStaticPropsHelperResult>> {
+  return await getStaticPropsHelper({...context, query: getPhotographyPropsQuery})
 }
 
-export async function getStaticPaths() {
-    const slugs = await getClient().fetch(getPhotographyPathsQuery)
-    return {
-        paths: slugs.map(slug => ({ params: { slug } })),
-        fallback: true
-    }
+export async function getStaticPaths(context: GetStaticPathsContext): Promise<GetStaticPathsResult> {
+  return await getStaticPathsHelper({...context, query: getPhotographyPathsQuery})
 }

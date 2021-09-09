@@ -59,3 +59,19 @@ This is an e-commerce *starter* that features a studio with a simple [Next.js to
 * Frontend with product pages styled using Tailwind.css
 * Content types for products, ads, pages, routes, popup shops, social media
 
+## Updating NPM Packages
+See available updates:
+```bash
+npm outdated
+```
+
+Update package.json:
+```bash
+npx npm-check-updates -u
+```
+
+Install new packages:
+```bash
+npm i
+```
+> You must change directory to studio to update studio dependencies

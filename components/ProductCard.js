@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { urlFor } from "../utils/sanity";
+import Link from 'next/link'
+import { urlFor } from '../utils/sanity'
 
 function ProductCard({ _id, title, mainImage, slug, defaultProductVariant }) {
   return (
@@ -9,8 +9,8 @@ function ProductCard({ _id, title, mainImage, slug, defaultProductVariant }) {
           className="flex items-end justify-end h-56 w-full bg-cover"
           style={{
             backgroundImage: `url('${urlFor(mainImage)
-              .auto("format")
-              .fit("crop")
+              .auto('format')
+              .fit('crop')
               .width(750)
               .quality(80)}`,
           }}
@@ -37,7 +37,7 @@ function ProductCard({ _id, title, mainImage, slug, defaultProductVariant }) {
         </div>
       </a>
     </Link>
-  );
+  )
 }
 
-export default ProductCard;
+export default ProductCard
