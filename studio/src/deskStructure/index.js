@@ -1,5 +1,6 @@
 import S from "@sanity/desk-tool/structure-builder";
 import { MdWeb, MdSettings } from "react-icons/md";
+import { FcGallery } from "react-icons/fc";
 
 import TotebagPreview from "../components/previews/banners/swag/TotebagPreview";
 import ShirtPreview from "../components/previews/banners/swag/ShirtPreview";
@@ -12,6 +13,7 @@ const hiddenDocTypes = (listItem) =>
     "page",
     "route",
     "siteConfig",
+    "gallery"
   ].includes(listItem.getId());
 
 export default () =>
@@ -36,6 +38,15 @@ export default () =>
                 ),
               S.documentTypeListItem("route").title("Routes"),
               S.documentTypeListItem("page").title("Pages"),
+              S.listItem()
+                .title("Gallery")
+                .icon(FcGallery)
+                .child(
+                  S.document()
+                    .title("Gallery")
+                    .schemaType("gallery")
+                    .documentId("gallery")
+                )
             ])
         ),
       ...S.documentTypeListItems().filter(hiddenDocTypes),

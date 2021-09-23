@@ -9,6 +9,7 @@ import page from "./documents/page";
 import route from "./documents/route";
 import siteConfig from "./documents/siteConfig";
 import person from "./documents/person";
+import gallery from "./documents/gallery";
 import painting from "./documents/painting";
 import pottery from "./documents/pottery";
 import photography from "./documents/photography";
@@ -46,6 +47,7 @@ export default createSchema({
     route,
     siteConfig,
     person,
+    gallery,
     painting,
     pottery,
     photography,
