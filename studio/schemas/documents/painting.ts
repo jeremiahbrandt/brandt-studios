@@ -12,6 +12,12 @@ export default {
             type: 'string'
         },
         {
+            name: 'enabled',
+            title: 'Shown',
+            type: 'boolean',
+            description: 'Show the painting to users.'
+        },
+        {
             name: 'slug',
             title: 'Slug',
             type: 'slug',

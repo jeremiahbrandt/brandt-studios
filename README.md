@@ -3,7 +3,7 @@
 ## Links
 - [GitHub](https://github.com/jeremiahbrandt/brandt-studios)
 - [Local Site](http://localhost:3000/)
-- [Local CMS](http://localhost:3000/studio)
+- [Local CMS](http://localhost:3333/)
 - [Deployed Site](https://brandt-studios.vercel.app/)
 - [Deployed CMS](https://brandt-studios.vercel.app/studio)
 - [Vercel Management](https://vercel.com/jeremiahbrandt/brandt-studios)

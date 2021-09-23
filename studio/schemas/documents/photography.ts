@@ -9,7 +9,13 @@ export default {
         {
             name: 'title',
             title: 'Title',
-            type: 'string'
+            type: 'string',
+        },
+        {
+            name: 'enabled',
+            title: 'Shown',
+            type: 'boolean',
+            description: 'Show the photograph to users.'
         },
         {
             name: 'slug',

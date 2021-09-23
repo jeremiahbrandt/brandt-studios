@@ -8,8 +8,14 @@ export default {
     fields: [
         {
             name: 'title',
-            title: 'Title',
+            title: 'NewTitle',
             type: 'string'
+        },
+        {
+            name: 'enabled',
+            title: 'Shown',
+            type: 'boolean',
+            description: 'Show the pottery to users.'
         },
         {
             name: 'slug',
