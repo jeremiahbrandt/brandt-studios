@@ -1,5 +1,13 @@
 import { groq } from "next-sanity"
 
+export const getGalleryItems = `
+    *[_id == "gallery"] {
+        items[] -> {
+            ...
+        }
+    }[0].items
+`
+
 export const getAllPaintingsQuery = `*[_type == "painting" && defined(slug.current) && enabled == true]`
 export const getPaintingPropsQuery = groq`*[_type == "painting" && slug.current == $slug && enabled == true][0]`
 export const getPaintingPathsQuery = groq`*[_type == "painting" && defined(slug.current) && enabled == true][].slug.current`
