@@ -1,8 +1,12 @@
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
-import { getIndexProps } from '../utils/api'
+import GalleryItem from '../components/GalleryItem'
+import { getHomePageProps } from '../utils/api'
 
 export type IndexProps = {
   galleryItems: {
+    artist: string,
+    image: string,
+    slug: string,
     title: string
   }[]
 }
@@ -12,17 +16,18 @@ export default function IndexPage({ galleryItems }: IndexProps): JSX.Element {
     <div>
       Welcome to Brandt Studios!
       <h1>Gallery Items</h1>
-      <ul>
+      <div className="container grid grid-cols-3 grid-gap-2 max-auto">
+
         {galleryItems.map((galleryItem, index) => {
-          return <li key={`gallery-item-${index}`}>{galleryItem.title}</li>
+          return <GalleryItem key={`${galleryItem.title}-${galleryItem.slug}`} {...galleryItem} />
         })}
-      </ul>
+      </div>
     </div>
   )
 }
 
 export async function getStaticProps({ preview = false }: GetStaticPropsContext): Promise<GetStaticPropsResult<IndexProps>> {
-  const galleryItems = await getIndexProps(preview) ?? []
+  const galleryItems = await getHomePageProps(preview) ?? []
   return {
     props: { galleryItems },
   }

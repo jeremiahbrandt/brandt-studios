@@ -8,9 +8,24 @@ it('gallery items are displayed as list items', async () => {
     expect.assertions(3)
     const props: IndexProps = {
         galleryItems: [
-            { title: 'Item 1' },
-            { title: 'Item 2' },
-            { title: 'Item 3' },
+            { 
+                artist: 'Artist 1',
+                image: 'example.com/item-1',
+                title: 'Item 1',
+                slug: 'item-1',
+            },
+            { 
+                artist: 'Artist 2',
+                image: 'example.com/item-2',
+                title: 'Item 2',
+                slug: 'item-2',
+            },
+            { 
+                artist: 'Artist 3',
+                image: 'example.com/item-3',
+                title: 'Item 3',
+                slug: 'item-3',
+            },
         ]
     }
 
@@ -18,8 +33,7 @@ it('gallery items are displayed as list items', async () => {
     render(<HomePage {...props} />)
 
     // Assert
-    const items = screen.getAllByRole('listitem')
     props.galleryItems.forEach(propItem => {
-        expect(items.some(item => item.textContent === propItem.title)).toBeTruthy()
+        expect(screen.getByText(propItem.title)).toBeInTheDocument()
     })
 })
