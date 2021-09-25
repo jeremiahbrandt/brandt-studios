@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 import HomePage, { IndexProps } from '../../pages/index'
 import { render, screen } from '@testing-library/react'
 

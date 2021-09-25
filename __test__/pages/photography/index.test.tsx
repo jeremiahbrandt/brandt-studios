@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 import PhotographyPage from '../../../pages/photography'
 import { render, screen } from '@testing-library/react'
 import { PhotographyPageProps } from '../../../pages/photography'

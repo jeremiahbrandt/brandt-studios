@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
  import PaintingPage from '../../../pages/paintings'
  import { render, screen } from '@testing-library/react'
  import { PaintingPageProps } from '../../../pages/paintings'
