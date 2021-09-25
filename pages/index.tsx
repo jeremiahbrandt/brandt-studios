@@ -22,7 +22,7 @@ export default function IndexPage({ galleryItems }: IndexProps): JSX.Element {
 }
 
 export async function getStaticProps({ preview = false }: GetStaticPropsContext): Promise<GetStaticPropsResult<IndexProps>> {
-  const galleryItems = await getIndexProps(preview)
+  const galleryItems = await getIndexProps(preview) ?? []
   return {
     props: { galleryItems },
   }
