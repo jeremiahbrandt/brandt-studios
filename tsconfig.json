@@ -21,8 +21,11 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "__mocks__/next-sanity.js", "utils/__mocks__/sanity.js"  ],
+    "**/*.tsx",
+    "__mocks__/next-sanity.js",
+    "utils/__mocks__/sanity.js",
+    "pages/index.js"
+  ],
   "exclude": [
     "node_modules"
   ]

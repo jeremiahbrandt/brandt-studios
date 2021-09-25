@@ -1,13 +1,6 @@
-import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { getIndexProps } from '../utils/api'
 
-export type IndexProps = {
-  galleryItems: {
-    title: string
-  }[]
-}
-
-export default function IndexPage({ galleryItems }: IndexProps): JSX.Element {
+export default function IndexPage({ galleryItems }) {
   return (
     <div>
       Welcome to Brandt Studios!
@@ -21,7 +14,7 @@ export default function IndexPage({ galleryItems }: IndexProps): JSX.Element {
   )
 }
 
-export async function getStaticProps({ preview = false }: GetStaticPropsContext): Promise<GetStaticPropsResult<IndexProps>> {
+export async function getStaticProps({ preview = false }) {
   const galleryItems = await getIndexProps(preview)
   return {
     props: { galleryItems },
