@@ -13,7 +13,8 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "lint": "next lint",
-    "lint:fix": "next lint --fix"
+    "lint:fix": "next lint --fix",
+    "ghActions": "concurrently \"npm:lint\" \"npm:test\" \"npm:build\""
   },
   "repository": {
     "type": "git",

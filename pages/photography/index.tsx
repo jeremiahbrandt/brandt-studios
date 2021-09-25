@@ -4,7 +4,7 @@ import { List, ListItem } from '../../components/List'
 import { getAllPhotographyQuery } from '../../utils/queries'
 import { getClient } from '../../utils/sanity'
 
-type PhotographyProps = {
+export type PhotographyProps = {
   photography: ListItem[]
 }
 

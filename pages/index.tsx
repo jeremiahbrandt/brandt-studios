@@ -1,8 +1,7 @@
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
-import { getGalleryItems } from '../utils/queries'
-import { getClient } from '../utils/sanity'
+import { getIndexProps } from '../utils/api'
 
-type IndexProps = {
+export type IndexProps = {
   galleryItems: {
     title: string
   }[]
@@ -23,7 +22,7 @@ export default function IndexPage({ galleryItems }: IndexProps): JSX.Element {
 }
 
 export async function getStaticProps({ preview = false }: GetStaticPropsContext): Promise<GetStaticPropsResult<IndexProps>> {
-  const galleryItems = await getClient(preview).fetch(getGalleryItems)
+  const galleryItems = await getIndexProps(preview)
   return {
     props: { galleryItems },
   }
