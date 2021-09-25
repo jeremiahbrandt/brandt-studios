@@ -38,6 +38,7 @@ export default function ShopPagePreviewWrapper({ shopData, preview, query }: Get
     title,
   } = shop
 
+
   if (!router.isFallback && !shop.slug) {
     return <Error statusCode={404} />
   }

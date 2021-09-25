@@ -3,14 +3,14 @@
  */
 import PhotographyPage from '../../../pages/photography'
 import { render, screen } from '@testing-library/react'
-import { PhotographyProps } from '../../../pages/photography'
+import { PhotographyPageProps } from '../../../pages/photography'
 
 jest.mock('../../../utils/sanity')
 
 it('gallery items are displayed as list items', async () => {
     // Arrange
     expect.assertions(3)
-    const props: PhotographyProps = {
+    const props: PhotographyPageProps = {
         photography: [
             {
                 title: 'Item 2',
