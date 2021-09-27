@@ -1,8 +1,12 @@
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import GalleryItem from '../components/GalleryItem'
-import { getHomePageProps } from '../utils/api'
+import { getHomePageProps, getSiteConfig, SiteConfigResponse } from '../utils/api'
 
-export type IndexProps = {
+export type PageProps = {
+  siteConfig: SiteConfigResponse
+}
+
+export type IndexProps = PageProps & {
   galleryItems: {
     artist: string,
     image: string,
@@ -28,7 +32,8 @@ export default function IndexPage({ galleryItems }: IndexProps): JSX.Element {
 
 export async function getStaticProps({ preview = false }: GetStaticPropsContext): Promise<GetStaticPropsResult<IndexProps>> {
   const galleryItems = await getHomePageProps(preview) ?? []
+  const siteConfig = await getSiteConfig(preview)
   return {
-    props: { galleryItems },
+    props: { galleryItems, siteConfig },
   }
 }

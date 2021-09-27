@@ -1,10 +1,12 @@
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import React from 'react'
+import { PageProps } from '..'
 import { List, ListItem } from '../../components/List'
+import { getSiteConfig } from '../../utils/api'
 import { getAllPaintingsQuery } from '../../utils/queries'
 import { getClient } from '../../utils/sanity'
 
-export type PaintingPageProps = {
+export type PaintingPageProps = PageProps &  {
   paintings: ListItem[]
 }
 
@@ -27,8 +29,10 @@ export async function getStaticProps({ preview = false }: GetStaticPropsContext)
     }
   }[]
 
+  const siteConfig = await getSiteConfig(preview)
+
 
   return {
-    props: { paintings },
+    props: { paintings, siteConfig },
   }
 }

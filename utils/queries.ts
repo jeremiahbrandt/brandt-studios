@@ -1,5 +1,11 @@
 import { groq } from "next-sanity"
 
+export const getSiteTitleQuery = groq`
+* [_id == "siteConfig"] {
+	title
+}[0]
+`
+
 export const getGalleryItems = `
 * [_id == "gallery"] {
     items[] -> {
