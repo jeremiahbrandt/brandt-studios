@@ -17,7 +17,7 @@ export default function Layout({ children, siteConfig }: LayoutProps): JSX.Eleme
       <header>
         <div className="container mx-auto px-6 py-3">
           <div className="flex items-center justify-between">
-            <div className="w-1000 text-gray-700 text-center text-2xl font-semibold">
+            <div className="w-full text-gray-700 text-center text-2xl font-semibold">
               {siteConfig.title}
             </div>
             <div className="flex items-center justify-end w-min">
