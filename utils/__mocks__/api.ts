@@ -1,3 +1,5 @@
+import { SiteConfigResponse } from "../api";
+
 export function getIndexProps(preview: boolean) {
     return [
         {
@@ -6,4 +8,10 @@ export function getIndexProps(preview: boolean) {
             title: "Item 2"
         }
     ]
+}
+
+export async function getSiteConfig(): Promise<SiteConfigResponse> {
+    return {
+        title: "My Site",
+    }
 }
