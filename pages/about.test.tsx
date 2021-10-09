@@ -1,7 +1,6 @@
 import { screen, render } from '@testing-library/react'
 import AboutPage from './about'
 
-
 describe('aboutPage tests', () => {
   it('renders about page', () => {
     // Arrange
