@@ -18,7 +18,7 @@ export default function IndexPage({ galleryItems }: IndexProps): JSX.Element {
       <h1>Gallery Items</h1>
       <div className="container grid grid-cols-3 grid-gap-2 max-auto">
 
-        {galleryItems.map((galleryItem, index) => {
+        {galleryItems.map(galleryItem => {
           return <GalleryItem key={`${galleryItem.title}-${galleryItem.slug}`} {...galleryItem} />
         })}
       </div>

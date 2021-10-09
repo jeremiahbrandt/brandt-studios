@@ -1,13 +1,13 @@
 import { screen, render } from '@testing-library/react'
 import AboutPage from './about'
 
-it('renders about page', () => {
-    // Arrange
-    expect.assertions(1)
+test('renders about page', () => {
+  // Arrange
+  expect.assertions(1)
 
-    // Act
-    render(<AboutPage />)
+  // Act
+  render(<AboutPage />)
 
-    // Assert
-    expect(screen.getByText('This is the about page')).toBeInTheDocument()
+  // Assert
+  expect(screen.getByText('This is the about page')).toBeInTheDocument()
 })
