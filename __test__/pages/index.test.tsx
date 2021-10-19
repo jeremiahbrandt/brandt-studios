@@ -10,19 +10,19 @@ it('gallery items are displayed as list items', async () => {
         galleryItems: [
             { 
                 artist: 'Artist 1',
-                image: 'example.com/item-1',
+                image: 'https://example.com/item-1',
                 title: 'Item 1',
                 slug: 'item-1',
             },
             { 
                 artist: 'Artist 2',
-                image: 'example.com/item-2',
+                image: 'https://example.com/item-2',
                 title: 'Item 2',
                 slug: 'item-2',
             },
             { 
                 artist: 'Artist 3',
-                image: 'example.com/item-3',
+                image: 'https://example.com/item-3',
                 title: 'Item 3',
                 slug: 'item-3',
             },

@@ -70,14 +70,14 @@ export default function Layout({ children, siteConfig }: LayoutProps): JSX.Eleme
                   Paintings
                 </a>
               </Link>
-              <Link href="/about">
-                <a className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">
-                  About
-                </a>
-              </Link>
               <Link href="/contact">
                 <a className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">
                   Contact
+                </a>
+              </Link>
+              <Link href="/about">
+                <a className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">
+                  About
                 </a>
               </Link>
             </div>

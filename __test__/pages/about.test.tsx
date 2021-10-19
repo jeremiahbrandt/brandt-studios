@@ -1,15 +1,17 @@
 import { screen, render } from '@testing-library/react'
-import AboutPage from './about'
+import AboutPage from '../../pages/about'
 
 jest.mock('../utils/api')
 
-it('renders about page', () => {
+describe('aboutPage tests', () => {
+  it('renders about page', () => {
     // Arrange
     expect.assertions(1)
-
+  
     // Act
     render(<AboutPage />)
-
+  
     // Assert
     expect(screen.getByText('This is the about page')).toBeInTheDocument()
+  })
 })
