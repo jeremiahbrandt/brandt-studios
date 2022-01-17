@@ -1,7 +1,7 @@
 import { screen, render } from '@testing-library/react'
 import AboutPage from '../../pages/about'
 
-jest.mock('../utils/api')
+jest.mock('../../utils/api')
 
 describe('aboutPage tests', () => {
   it('renders about page', () => {
