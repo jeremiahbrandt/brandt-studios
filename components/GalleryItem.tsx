@@ -10,8 +10,8 @@ export type GalleryItemProps = {
 export default function GalleryItem({ image, title }: GalleryItemProps): JSX.Element {
   return (
     <div className='rounded'>
+      <h3 className='text-center'>{title}</h3>
       <Image src={image} alt={title} width={1600} height={900} />
-      <h3>{title}</h3>
     </div>
   )
 }

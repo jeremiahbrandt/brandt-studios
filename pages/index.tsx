@@ -17,15 +17,11 @@ export type IndexProps = PageProps & {
 
 export default function IndexPage({ galleryItems }: IndexProps): JSX.Element {
   return (
-    <div>
-      Welcome to Brandt Studios!
-      <h1>Gallery Items</h1>
-      <div className="container grid grid-cols-3 grid-gap-2 max-auto">
+      <div className="grid grid-flow-row-dense sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
         {galleryItems.map(galleryItem => {
           return <GalleryItem key={`${galleryItem.title}-${galleryItem.slug}`} {...galleryItem} />
         })}
       </div>
-    </div>
   )
 }
 
