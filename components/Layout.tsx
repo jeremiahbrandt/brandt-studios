@@ -18,7 +18,7 @@ export default function Layout({ children, siteConfig }: LayoutProps): JSX.Eleme
         <div className="container mx-auto px-6 py-3">
           <div className="flex items-center justify-between">
             <div className="w-full text-gray-700 text-center text-2xl font-semibold">
-              {siteConfig?.title ?? ""}
+              {siteConfig?.title ?? ''}
             </div>
             <div className="flex items-center justify-end w-min">
               <button
@@ -95,7 +95,7 @@ export default function Layout({ children, siteConfig }: LayoutProps): JSX.Eleme
             href="#"
             className="text-xl font-bold text-gray-500 hover:text-gray-400"
           >
-            {siteConfig?.title ?? ""}
+            {siteConfig?.title ?? ''}
           </a>
           <p className="py-2 text-gray-500 sm:py-0">All rights reserved</p>
         </div>

@@ -2,9 +2,7 @@ import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { PageProps } from '.'
 import { getSiteConfig } from '../utils/api'
 
-export type ContactPageProps = PageProps & {
-
-}
+export type ContactPageProps = PageProps
 
 export default function ContactPage(): JSX.Element {
   return (
