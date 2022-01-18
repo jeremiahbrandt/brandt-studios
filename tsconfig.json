@@ -16,13 +16,16 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "__mocks__/next-sanity.js", "utils/__mocks__/sanity.js"  ],
+    "**/*.tsx",
+    "__mocks__/next-sanity.js",
+    "utils/__mocks__/sanity.js"
+  ],
   "exclude": [
     "node_modules"
   ]
