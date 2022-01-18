@@ -52,6 +52,6 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   const slugs = await getPaintingSlugStaticPaths()
   return {
     paths: slugs.map(slug => ({ params: { slug } })),
-    fallback: true,
+    fallback: false,
   }
 }
