@@ -1,7 +1,8 @@
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { getSiteConfig } from '../utils/api'
+import { PageProps } from '.'
 
-export type AboutPageProps = PageProp
+export type AboutPageProps = PageProps
 
 export default function AboutPage(): JSX.Element {
   return (
