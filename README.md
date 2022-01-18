@@ -16,6 +16,11 @@
 
 You can also do `vercel env pull` to copy environment variables to your development environment.
 
+## Pushing Changes
+Ensure correct environment variables are set and run `npm run ghActions` to test changes locally before pushing to GitHub.
+1. Pushes to `feature/*` branches run Vercel pipeline and GitHub Actions using `development` dataset.
+2. Pushes to `main` branch runs Vercel pipeline and GitHub Actions using `production` dataset.
+
 ## Running Locally
 First time install vercel globally:
 ```bash
