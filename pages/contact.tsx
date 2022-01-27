@@ -6,7 +6,19 @@ import { getSiteConfig } from '../utils/api'
 export type ContactPageProps = PageProps
 
 function temporaryFormFunction() {
-  alert('Form Submitted')
+  fetch('/api/contact', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json, text/plain, */*',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify("This is ")
+  }).then((res) => {
+    console.log('Response received')
+    if (res.status === 200) {
+      console.log('Response succeeded!')
+    }
+  })
 }
 
 export default function ContactPage(): JSX.Element {
