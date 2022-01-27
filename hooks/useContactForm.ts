@@ -20,15 +20,19 @@ export function useContactForm(callback: () => void) {
         setMessage(e.target.value)
     }
 
-    function handleSubmit(e:ChangeEvent<HTMLFormElement>) {
+    async function handleSubmit(e:ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
-        fetch('/api/contact', {
+        await fetch('/api/contact', {
             method: 'POST',
             headers: {
               'Accept': 'application/json, text/plain, */*',
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify(message)
+            body: JSON.stringify({
+              name: name,
+              email: email,
+              message: message
+            })
           }).then((res) => {
             console.log('Response received')
             if (res.status === 200) {
@@ -36,6 +40,8 @@ export function useContactForm(callback: () => void) {
               setName('')
               setEmail('')
               setMessage('')
+            } else {
+              console.error("Error: " + res.status)
             }
           })
     }

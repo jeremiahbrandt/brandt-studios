@@ -14,11 +14,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     let html = `<i>${time}</i><br /><br />`;
 
-    for (var propName in req.body) {
-        if (req.body.hasOwnProperty(propName)) {
-            html += `<b>${propName}</b>: ${req.body[propName]}<br />`;
-        }
-    }
+    html += `Name: ${req.body.name}<br />`;
+    html += `Email: ${req.body.email}<br />`;
+    html += `Message: ${req.body.message}<br />`;
 
     let mailOptions = {
         from: process.env.EMAIL_SENDER_ADDRESS,
